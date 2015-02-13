@@ -11,8 +11,8 @@ describe HelloWorldAPI do
     describe 'GET /api/v1/hello_world' do
       it 'returns JSON with Hello World!' do
         get "/api/v1/hello_world"
-        last_response.status.should == 200
-        JSON.parse(last_response.body)["Hello"].should == "World!"
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to eq({Hello: 'World!'}.to_json)
       end
     end
   end
